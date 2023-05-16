@@ -8,12 +8,12 @@ import lombok.Data;
 public class Instalment {
 
     //törlesztőrészlet
-    private int loan;
-    private double interest; //kamat
+    private int fund; //induló tőke
+    private double interest; //éves kamatláb
     private int loanPrize; //hitelbírálati díj
-    private int monthTime;
+    private int year;
 
-    public double calculateInstalment(){
-        return (this.loan * (1 + this.interest / 100) + this.loanPrize) / this.monthTime;
+    public double calculateCompoundInterest(){ //kamatos kamat
+        return this.fund * (Math.pow((1 + this.interest), year));
     }
 }
