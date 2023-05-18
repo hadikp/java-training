@@ -9,11 +9,21 @@ public class Instalment {
 
     //törlesztőrészlet
     private int fund; //induló tőke
-    private double interest; //éves kamatláb
+    private double interest; //éves kamatláb 0.25%
     private int loanPrize; //hitelbírálati díj
     private int year;
 
-    public double calculateCompoundInterest(){ //kamatos kamat
+    public Instalment(int fund, double interest, int year) {
+        this.fund = fund;
+        this.interest = interest;
+        this.year = year;
+    }
+
+    public double calculateCompoundInterestByYear(){ //kamatos kamat
         return this.fund * (Math.pow((1 + this.interest), year));
+    }
+
+    public double calculateCompoundInterestByMonth(){ //kamatos kamat
+        return this.fund * (Math.pow((1 + this.interest / 12), year * 12));
     }
 }
