@@ -13,4 +13,10 @@ public class Instalment {
         double powNumber = Math.pow(wholeInterest, year);
         return Math.round((loan * powNumber * interest) / (powNumber - 1));
     }
+
+    public double getMonthLoan(double interest, int loan, int year) { //havi törlesztőrészlet
+        double wholeInterestByMonth = 1 + interest / 12;
+        double powNumByMonth = Math.pow(wholeInterestByMonth, year * 12);
+        return Math.round((loan * powNumByMonth * (wholeInterestByMonth - 1)) / (powNumByMonth - 1));
+    }
 }
